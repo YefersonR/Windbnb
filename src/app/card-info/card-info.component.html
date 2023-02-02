@@ -1,0 +1,15 @@
+<div class="container" *ngFor="let property of properties">
+    <div class="card">
+        <img src="{{property.photo}}" alt="{{property.title}}">
+        <div class="tags">
+            <p *ngIf="property.superHost" class="supperHot">SUPER HOST</p>
+            <p >{{property.type}}
+                <span *ngIf="property.beds != null"> . {{property.beds}} beds</span>
+            </p>
+            <p class="rating"> <span class="material-icons">star</span>  {{property.rating }}</p>
+        </div>
+        <div class="title">
+            <p >{{property.title}}</p>
+        </div>
+    </div>
+</div>

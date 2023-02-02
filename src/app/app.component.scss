@@ -1,0 +1,57 @@
+.container{
+  width: 95%;
+  margin: auto;
+}
+.header{
+    img{
+        max-width: 100px;
+        margin-bottom: 15px;
+    }
+    display: flex;
+    flex-direction: column;
+    @media screen and (min-width:900px) {
+      width: 100%;
+      margin: auto;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 20px;
+      img{
+        width: 80%;
+        height: auto;
+        object-fit: contain;
+        margin-bottom: 0;
+      }
+    }
+}
+main{
+
+  .ubication{
+    width: 95%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #8b8b8b;
+    h1{
+      color: #424242;
+
+    }
+  }
+  section app-card-info{
+    display:grid;
+    @media screen and (min-width:600px) {
+      grid-template-columns: repeat(2,1fr);
+    }
+    @media screen and (min-width:900px) {
+      grid-template-columns: repeat(3,1fr);
+    }
+  }
+}
+
+footer{
+  text-align: center;
+  margin-top: 10px;
+  font-size: 1.1rem;
+  color:#8b8b8b;
+}
