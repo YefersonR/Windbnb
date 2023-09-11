@@ -1,7 +1,46 @@
-<form class="search">
+<div id="container" class="container-search">
+  <div #search class="search">
+    <div class="search-form">
+      <p class="mobile-search">Edit your search</p>
+      <input  (focus)="getLocations($event)" type="text" [(ngModel)]="locationModel" placeholder="Location" id="Location" class="location" readonly>
+      <input (focus)="guest($event)" type="text" [(ngModel)]="guestModel" placeholder="Add guests" id="Guest" class="guest" readonly>
+      <button class="form-button" (click)="searchStays()">
+        <i class="material-icons">
+        search
+        </i>
+        <span *ngIf="isActive">Search</span>
+      </button>
+    </div>
+    <div class="search-content">
+      <div class="location-content" *ngIf="isActive && typeofSearch === 'Location'">
+        <p *ngFor="let option of searchOptions" (click)="changeLocation($event)">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-map-pin-filled" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M18.364 4.636a9 9 0 0 1 .203 12.519l-.203 .21l-4.243 4.242a3 3 0 0 1 -4.097 .135l-.144 -.135l-4.244 -4.243a9 9 0 0 1 12.728 -12.728zm-6.364 3.364a3 3 0 1 0 0 6a3 3 0 0 0 0 -6z" stroke-width="0" fill="currentColor"></path>
+         </svg>
+          {{option}}</p>
 
-    <input type="text" placeholder="Location" class="location">
-    <input type="text" placeholder="Add guests" class="guest">
-    <button class="material-icons">search</button>
+      </div>
 
-</form>
+      <div class="guests-content" *ngIf="isActive && typeofSearch === 'Guest'">
+        <div class="guest-separator">
+          <p class="guest-title">Adults</p>
+          <p class="guest-subtitle">Ages 13 or above</p>
+          <div class="counter-guest">
+            <p class="guest-modifier" (click)="decrementGuestAdults()">-</p>
+            <p>{{guestNumberAdults}}</p>
+            <p class="guest-modifier" (click)="increaseGuestAdults()">+</p>
+          </div>
+        </div>
+        <div class="guest-separator">
+          <p class="guest-title">Children</p>
+          <p class="guest-subtitle">Ages 2-12</p>
+          <div class="counter-guest">
+            <p class="guest-modifier" (click)="decrementGuestChildren()">-</p>
+            <p>{{guestNumberChildren}}</p>
+            <p class="guest-modifier" (click)="increaseGuestChildren()">+</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

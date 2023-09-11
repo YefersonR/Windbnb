@@ -1,5 +1,7 @@
+import { StaysServiceService } from './../stays-service.service';
+import { Stays } from './../interfaces/stays';
 import { Component, OnInit } from '@angular/core';
-import stays from '../../assets/stays.json';
+
 
 @Component({
   selector: 'app-card-info',
@@ -7,11 +9,13 @@ import stays from '../../assets/stays.json';
   styleUrls: ['./card-info.component.scss']
 })
 export class CardInfoComponent implements OnInit {
-  properties = stays;
-  constructor() { }
+  properties?:Stays[];
+  constructor(private staysServiceService: StaysServiceService) { }
 
   ngOnInit(): void {
-    console.log(this.properties)
+    this.staysServiceService.getStays.subscribe(stays=>{
+      this.properties = stays
+    })
   }
 
 }

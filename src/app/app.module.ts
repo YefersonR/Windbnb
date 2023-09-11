@@ -1,6 +1,6 @@
-import { NgModule } from '@angular/core';
+import { NgModule,  } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { SearchComponent } from './search/search.component';
 import { CardInfoComponent } from './card-info/card-info.component';
@@ -12,7 +12,8 @@ import { CardInfoComponent } from './card-info/card-info.component';
     CardInfoComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

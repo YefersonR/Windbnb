@@ -1,16 +1,20 @@
 <div class="container">
 
-  <header class="header">
-    <img src="./../assets/logo.png" alt="logo">
-    <app-search class="search"></app-search>
+  <header class="header" >
+    <img src="./../assets/logo.png" alt="logo" (click)="home()" style="cursor: pointer;">
+    <app-search class="search" ></app-search>
   </header>
   <main>
     <div class="ubication">
-      <h1>Ubication</h1>
-      <p>cantidad</p>
+      <h1>{{location}}</h1>
+      <p>{{quantity}} Stays</p>
     </div>
     <section>
       <app-card-info></app-card-info>
+      <div *ngIf="quantity === 0">
+        <h1 class="notFound" >No stays were found with these characteristics</h1>
+      </div>
+
     </section>
   </main>
   <footer>

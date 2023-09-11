@@ -23,6 +23,8 @@
         margin-bottom: 0;
       }
     }
+
+
 }
 main{
 
@@ -46,6 +48,12 @@ main{
     @media screen and (min-width:900px) {
       grid-template-columns: repeat(3,1fr);
     }
+  }
+  .notFound{
+    margin: auto;
+    width: 70%;
+    font-size: 2rem;
+    font-weight:300;
   }
 }
 
